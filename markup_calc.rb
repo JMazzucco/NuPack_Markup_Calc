@@ -9,3 +9,9 @@ def people_needed_input
 	num_people = gets.chomp
 	num_people
 end
+
+def prod_category
+	puts "Enter the product category"
+	category = gets.chomp
+	category
+end
