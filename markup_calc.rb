@@ -5,7 +5,7 @@ def base_price_input
 end
 
 def people_needed_input
-	puts "Enter the number of people needed to work on the job"
-	base_price = gets.chomp
-	base_price
+	puts "Enter the number of people needed to work on this job"
+	num_people = gets.chomp
+	num_people
 end
