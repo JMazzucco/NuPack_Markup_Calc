@@ -22,6 +22,15 @@ def prod_category
 	category
 end
 
+def flat_markup(base_price)
+	base_price *= 1.05
+end
+
+def num_workers_markup(base_plus_flat, num_workers)
+	base_plus_flat *= (0.012 * num_workers) + 1
+	base_plus_flat.round(2)
+end
+
 
 puts "Enter initial base price"
 base_price = amount_input("price")
@@ -31,3 +40,6 @@ num_workers = amount_input("number")
 
 puts "Enter the product category"
 category_name = prod_category
+
+base_plus_flat = flat_markup(base_price)
+p num_workers_markup(base_plus_flat, num_workers)

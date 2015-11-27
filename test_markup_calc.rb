@@ -15,6 +15,14 @@ class TestMarkupCalc < Minitest::Test
 		assert_kind_of(String, prod_category)
 	end
 
+	def test_flat_markup
+		assert_equal(1050, flat_markup(1000))
+	end
+
+	def test_num_workers_markup
+		assert_equal(111.3, num_workers_markup(105,5))
+	end
+
 end
 
 
