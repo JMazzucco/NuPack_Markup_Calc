@@ -31,6 +31,10 @@ class TestMarkupCalc < Minitest::Test
 		assert_equal(0.02, prod_material_markup("Electronics"))
 	end
 
+	def test_calc_total
+		assert_equal(1886.54, calc_total(1575, 0.06, 0.13))
+	end
+
 end
 
 

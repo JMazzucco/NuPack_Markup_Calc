@@ -46,17 +46,24 @@ def prod_material_markup(material_name)
 	end
 end
 
+def calc_total(base_plus_flat, workers_markup, material_markup)
+	total = base_plus_flat * (1 + workers_markup) * (1 + material_markup)
+  total.round(2)
+end
+
 puts "Enter initial base price"
 base_price = amount_input("price")
 
 puts "Enter the number of people needed to work on this job"
 num_workers = amount_input("number")
 
-puts "Enter the product material"
+puts "Enter the product material type"
 material_name = prod_material
 
-
 base_plus_flat = flat_markup(base_price)
-num_workers_markup(num_workers)
+workers_markup = num_workers_markup(num_workers)
+material_markup = prod_material_markup(material_name)
+
+total_price = calc_total(base_plus_flat, workers_markup, material_markup)
 
 
