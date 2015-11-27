@@ -63,7 +63,8 @@ material_name = prod_material
 base_plus_flat = flat_markup(base_price)
 workers_markup = num_workers_markup(num_workers)
 material_markup = prod_material_markup(material_name)
-
 total_price = calc_total(base_plus_flat, workers_markup, material_markup)
+
+puts "$"+total_price.to_s
 
 
