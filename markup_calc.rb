@@ -9,8 +9,8 @@ def amount_input(amount_type)
 	end
 
 	if amount <= 0
-		puts "Please enter a valid " + amount_type
-		amount_input(amount_type)
+		puts "Please enter a valid #{amount_type}"
+		amount = amount_input(amount_type)
 	end
 
 	amount
@@ -45,7 +45,7 @@ def calc_total(base_plus_flat, workers_markup, material_markup)
   total.round(2)
 end
 
-#append total price with a "0" if the price ends at the tenth decimal place
+#append total price with a "0" if the price ends at the tenth decimal instead of the hundredth
 def format_currency(price)
 	if (price * 100) % 10 == 0
 		price = price.to_s + "0"
@@ -54,7 +54,6 @@ def format_currency(price)
 	end
 	price
 end
-
 
 #Prompt user for input
 puts "Enter initial base price"
@@ -72,7 +71,6 @@ workers_markup = num_workers_markup(num_workers)
 material_markup = prod_material_markup(material_name)
 total_price = calc_total(base_plus_flat, workers_markup, material_markup)
 
-# total_price = total_price.to_s
 formatted_total = format_currency(total_price)
 
 #output total price
