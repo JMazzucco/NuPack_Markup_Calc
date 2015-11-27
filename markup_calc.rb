@@ -1,8 +1,9 @@
-#get user input and verify that is it a float or integer, greater than 0
+#get user input
 def get_action
   gets.chomp
 end
 
+#verify that input is either a float or integer and greater than 0
 def amount_input(amount_type)
 	amount = get_action
 

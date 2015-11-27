@@ -3,6 +3,11 @@ require 'minitest/autorun'
 
 class TestMarkupCalc < Minitest::Test
 
+	#set a value to prevent input prompt
+  def get_action
+    1
+ 	end
+
 	def test_amount_input_for_float
 		assert_kind_of(Float, amount_input("price"))
 	end
@@ -34,5 +39,4 @@ class TestMarkupCalc < Minitest::Test
 	def test_format_currency
 		assert_equal("2501.50", format_currency(2501.5))
 	end
-
 end
