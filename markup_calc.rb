@@ -3,10 +3,9 @@ def get_action
   gets.chomp
 end
 
-#verify that input is either a float or integer and greater than 0
+#convert string to an integer or float and check that it is greater than 0. If "material" is passed as the input parameter, check that it is between 1 and 4
 def amount_input(input)
 	amount = get_action
-
 
 	if input == "base"
 		amount = amount.to_f.round(2)
