@@ -30,10 +30,6 @@ def num_workers_markup(num_workers)
 	0.012 * num_workers
 end
 
-def num_workers_markup(num_workers)
-	0.012 * num_workers
-end
-
 def prod_material_markup(material_name)
 	if material_name == "Pharmaceuticals"
 	 	material_markup = 0.075
@@ -47,7 +43,7 @@ def prod_material_markup(material_name)
 end
 
 def calc_total(base_plus_flat, workers_markup, material_markup)
-	total = base_plus_flat * (1 + workers_markup) * (1 + material_markup)
+	total = base_plus_flat + (base_plus_flat * workers_markup) + (base_plus_flat *material_markup)
   total.round(2)
 end
 
@@ -65,6 +61,6 @@ workers_markup = num_workers_markup(num_workers)
 material_markup = prod_material_markup(material_name)
 total_price = calc_total(base_plus_flat, workers_markup, material_markup)
 
-puts "$"+total_price.to_s
-
+puts "------------------"
+puts "Total: $" + total_price.to_s
 

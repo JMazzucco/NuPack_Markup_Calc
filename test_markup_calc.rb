@@ -32,10 +32,7 @@ class TestMarkupCalc < Minitest::Test
 	end
 
 	def test_calc_total
-		assert_equal(1886.54, calc_total(1575, 0.06, 0.13))
+		assert_equal(1591.58, calc_total(1364.99, 0.036, 0.13))
 	end
 
 end
-
-
-
