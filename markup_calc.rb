@@ -1,6 +1,10 @@
 #get user input and verify that is it a float or integer, greater than 0
+def get_action
+  gets.chomp
+end
+
 def amount_input(amount_type)
-	amount = gets.chomp
+	amount = get_action
 
 	if amount_type == "price"
 		amount = amount.to_f.round(2)
