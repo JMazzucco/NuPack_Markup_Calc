@@ -14,7 +14,7 @@ end
 def prod_category
 	category = gets.chomp
 
-	if category.match(/[^a-zA-Z]/)
+	if category.match(/[^a-zA-Z]/) ||category.empty?
 		puts "Please enter a valid category"
 		prod_category
 	end
@@ -24,10 +24,10 @@ end
 
 
 puts "Enter initial base price"
-amount_input("price")
+base_price = amount_input("price")
 
 puts "Enter the number of people needed to work on this job"
-amount_input("number")
+num_workers = amount_input("number")
 
 puts "Enter the product category"
-prod_category
+category_name = prod_category
