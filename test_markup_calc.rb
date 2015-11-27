@@ -9,11 +9,11 @@ class TestMarkupCalc < Minitest::Test
  	end
 
 	def test_amount_input_for_float
-		assert_kind_of(Float, amount_input("price"))
+		assert_kind_of(Float, amount_input("base"))
 	end
 
 	def test_amount_input_for_integer
-		assert_kind_of(Integer, amount_input("number"))
+		assert_kind_of(Integer, amount_input("material"))
 	end
 
 	def test_flat_markup

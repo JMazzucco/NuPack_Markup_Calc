@@ -4,18 +4,20 @@ def get_action
 end
 
 #verify that input is either a float or integer and greater than 0
-def amount_input(amount_type)
+def amount_input(input)
 	amount = get_action
 
-	if amount_type == "price"
+
+	if input == "base"
 		amount = amount.to_f.round(2)
-	elsif amount_type == "number"
+	elsif input == "workers" || input == "material"
 		amount = amount.to_i
 	end
 
-	if amount <= 0
-		puts "Please enter a valid #{amount_type}"
-		amount = amount_input(amount_type)
+	#prompt user to enter a valid number
+	if amount <= 0 || (!amount.between?(1,4) && input == "material")
+		puts "Please enter a valid number"
+		amount = amount_input(input)
 	end
 
 	amount
@@ -27,12 +29,12 @@ def num_workers_markup(num_workers)
 end
 
 #return material markup percentage based on input
-def prod_material_markup(material_name)
-	if material_name == 1
+def prod_material_markup(material_type)
+	if material_type == 1
 	 	material_markup = 0.075
-	elsif material_name == 2
+	elsif material_type == 2
 		material_markup = 0.13
-	elsif material_name == 3
+	elsif material_type == 3
 		material_markup = 0.02
 	else
 		material_markup = 0
@@ -62,18 +64,18 @@ end
 
 #Prompt user for input
 puts "Enter initial base price"
-base_price = amount_input("price")
+base_price = amount_input("base")
 
 puts "Enter the number of people needed to work on this job"
-num_workers = amount_input("number")
+num_workers = amount_input("workers")
 
 puts "Enter one of the following numbers to select the product material\n1 - Pharmaceuticals\n2 - Food\n3 - Electronics\n4 - Other"
-material_name = amount_input("number")
+material_type = amount_input("material")
 
 #call methods to calculate values
 base_plus_flat = flat_markup(base_price)
 workers_markup = num_workers_markup(num_workers)
-material_markup = prod_material_markup(material_name)
+material_markup = prod_material_markup(material_type)
 total_price = calc_total(base_plus_flat, workers_markup, material_markup)
 
 formatted_total = format_currency(total_price)
