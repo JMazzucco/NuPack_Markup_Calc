@@ -1,6 +1,6 @@
 def amount_input(amount_type)
 	amount = gets.chomp
-	amount = amount.to_f if amount_type == "price"
+	amount = amount.to_f.round(2) if amount_type == "price"
 	amount = amount.to_i if amount_type == "number"
 
 	if amount <= 0
@@ -23,11 +23,11 @@ def prod_category
 end
 
 
-# puts "Enter initial base price"
-# amount_input("price")
+puts "Enter initial base price"
+amount_input("price")
 
-# puts "Enter the number of people needed to work on this job"
-# amount_input("number")
+puts "Enter the number of people needed to work on this job"
+amount_input("number")
 
-# puts "Enter the product category"
-# prod_category
+puts "Enter the product category"
+prod_category
