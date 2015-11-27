@@ -23,11 +23,11 @@ def prod_category
 end
 
 
-puts "Enter initial base price"
-amount_input("price")
+# puts "Enter initial base price"
+# amount_input("price")
 
-puts "Enter the number of people needed to work on this job"
-amount_input("number")
+# puts "Enter the number of people needed to work on this job"
+# amount_input("number")
 
-puts "Enter the product category"
-prod_category
+# puts "Enter the product category"
+# prod_category
