@@ -61,7 +61,7 @@ def format_currency(price)
 	price
 end
 
-#Prompt user for input
+#Prompt user for input and assign returned values
 puts "Enter initial base price"
 base_price = amount_input("base")
 

@@ -8,6 +8,10 @@ class TestMarkupCalc < Minitest::Test
     1
  	end
 
+ 	def user_prompt(prompt)
+ 		"test"
+ 	end
+
 	def test_amount_input_for_float
 		assert_kind_of(Float, amount_input("base"))
 	end
