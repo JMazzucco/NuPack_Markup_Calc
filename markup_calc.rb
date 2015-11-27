@@ -1,17 +1,17 @@
 #get user input
 def get_action
-  gets.chomp
+	gets.chomp
 end
 
 #convert string to an integer or float and check that it is greater than 0. If "material" is passed as the input parameter, check that it is between 1 and 4
 def amount_input(input)
-	amount = get_action
+  amount = get_action
 
-	if input == "base"
+  if input == "base"
 		amount = amount.to_f.round(2)
-	elsif input == "workers" || input == "material"
+  elsif input == "workers" || input == "material"
 		amount = amount.to_i
-	end
+  end
 
 	#prompt user to enter a valid number
 	if amount <= 0 || (!amount.between?(1,4) && input == "material")
