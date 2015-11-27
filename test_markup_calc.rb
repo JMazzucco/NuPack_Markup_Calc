@@ -31,4 +31,8 @@ class TestMarkupCalc < Minitest::Test
 		assert_equal(1591.58, calc_total(1364.99, 0.036, 0.13))
 	end
 
+	def test_format_current
+		assert_equal("2501.50", format_currency(2501.5))
+	end
+
 end

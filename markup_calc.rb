@@ -1,9 +1,12 @@
-
-#get user input and verify that is it a float or integer
+#get user input and verify that is it a float or integer, greater than 0
 def amount_input(amount_type)
 	amount = gets.chomp
-	amount = amount.to_f.round(2) if amount_type == "price"
-	amount = amount.to_i if amount_type == "number"
+
+	if amount_type == "price"
+		amount = amount.to_f.round(2)
+	elsif amount_type == "number"
+		amount = amount.to_i
+	end
 
 	if amount <= 0
 		puts "Please enter a valid " + amount_type
@@ -42,6 +45,16 @@ def calc_total(base_plus_flat, workers_markup, material_markup)
   total.round(2)
 end
 
+#append total price with a "0" if the price ends at the tenth decimal place
+def format_currency(price)
+	if (price * 100) % 10 == 0
+		price = price.to_s + "0"
+	else
+		price = price.to_s
+	end
+	price
+end
+
 
 #Prompt user for input
 puts "Enter initial base price"
@@ -59,6 +72,9 @@ workers_markup = num_workers_markup(num_workers)
 material_markup = prod_material_markup(material_name)
 total_price = calc_total(base_plus_flat, workers_markup, material_markup)
 
+# total_price = total_price.to_s
+formatted_total = format_currency(total_price)
+
 #output total price
 puts "------------------"
-puts "Total: $" + total_price.to_s
+puts "Total: $" + formatted_total
