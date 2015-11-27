@@ -1,3 +1,5 @@
+
+#get user input and verify that is it a float or integer
 def amount_input(amount_type)
 	amount = gets.chomp
 	amount = amount.to_f.round(2) if amount_type == "price"
@@ -11,14 +13,12 @@ def amount_input(amount_type)
 	amount
 end
 
-def flat_markup(base_price)
-	base_price *= 1.05
-end
-
+#calculate total percentage based on number of workers needed for the job
 def num_workers_markup(num_workers)
 	0.012 * num_workers
 end
 
+#return material markup percentage based on input
 def prod_material_markup(material_name)
 	if material_name == 1
 	 	material_markup = 0.075
@@ -31,11 +31,19 @@ def prod_material_markup(material_name)
 	end
 end
 
+#calculate subtotal price
+def flat_markup(base_price)
+	base_price *= 1.05
+end
+
+#calculate total price
 def calc_total(base_plus_flat, workers_markup, material_markup)
 	total = base_plus_flat + (base_plus_flat * workers_markup) + (base_plus_flat *material_markup)
   total.round(2)
 end
 
+
+#Prompt user for input
 puts "Enter initial base price"
 base_price = amount_input("price")
 
@@ -45,7 +53,7 @@ num_workers = amount_input("number")
 puts "Enter one of the following numbers to select the product material\n1 - Pharmaceuticals\n2 - Food\n3 - Electronics\n4 - Other"
 material_name = amount_input("number")
 
-
+#call methods to calculate values
 base_plus_flat = flat_markup(base_price)
 workers_markup = num_workers_markup(num_workers)
 material_markup = prod_material_markup(material_name)
