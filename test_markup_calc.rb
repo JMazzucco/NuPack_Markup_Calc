@@ -20,7 +20,7 @@ class TestMarkupCalc < Minitest::Test
 	end
 
 	def test_num_workers_markup
-		assert_equal(111.3, num_workers_markup(105,5))
+		assert_equal(0.06, num_workers_markup(5))
 	end
 
 end
