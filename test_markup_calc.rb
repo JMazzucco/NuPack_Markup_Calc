@@ -23,6 +23,14 @@ class TestMarkupCalc < Minitest::Test
 		assert_equal(0.06, num_workers_markup(5))
 	end
 
+	def test_food_category_markup
+		assert_equal(0.13, prod_category_markup("Food"))
+	end
+
+	def test_electronics_category_markup
+		assert_equal(0.02, prod_category_markup("Electronics"))
+	end
+
 end
 
 

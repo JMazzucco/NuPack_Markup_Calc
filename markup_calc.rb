@@ -7,8 +7,6 @@ def amount_input(amount_type)
 		puts "Please enter a valid " + amount_type
 		amount_input(amount_type)
 	end
-
-	amount
 end
 
 def prod_category
@@ -18,8 +16,6 @@ def prod_category
 		puts "Please enter a valid category"
 		prod_category
 	end
-
-	category
 end
 
 def flat_markup(base_price)
@@ -30,6 +26,21 @@ def num_workers_markup(num_workers)
 	0.012 * num_workers
 end
 
+def num_workers_markup(num_workers)
+	0.012 * num_workers
+end
+
+def prod_category_markup(category_name)
+	if category_name == "Pharmaceuticals"
+	 	category_markup = 0.075
+	elsif category_name == "Food"
+		category_markup = 0.13
+	elsif category_name == "Electronics"
+		category_markup = 0.02
+	else
+		category_markup = 0
+	end
+end
 
 puts "Enter initial base price"
 base_price = amount_input("price")
