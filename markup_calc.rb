@@ -11,17 +11,6 @@ def amount_input(amount_type)
 	amount
 end
 
-def prod_material
-	material = gets.chomp
-
-	if material.match(/[^a-zA-Z]/) || material.empty?
-		puts "Please enter a valid material"
-		prod_material
-	end
-
-	material
-end
-
 def flat_markup(base_price)
 	base_price *= 1.05
 end
@@ -31,11 +20,11 @@ def num_workers_markup(num_workers)
 end
 
 def prod_material_markup(material_name)
-	if material_name == "Pharmaceuticals"
+	if material_name == 1
 	 	material_markup = 0.075
-	elsif material_name == "Food"
+	elsif material_name == 2
 		material_markup = 0.13
-	elsif material_name == "Electronics"
+	elsif material_name == 3
 		material_markup = 0.02
 	else
 		material_markup = 0
@@ -53,14 +42,15 @@ base_price = amount_input("price")
 puts "Enter the number of people needed to work on this job"
 num_workers = amount_input("number")
 
-puts "Enter the product material type"
-material_name = prod_material
+puts "Enter one of the following numbers to select the product material\n1 - Pharmaceuticals\n2 - Food\n3 - Electronics\n4 - Other"
+material_name = amount_input("number")
+
 
 base_plus_flat = flat_markup(base_price)
 workers_markup = num_workers_markup(num_workers)
 material_markup = prod_material_markup(material_name)
 total_price = calc_total(base_plus_flat, workers_markup, material_markup)
 
+#output total price
 puts "------------------"
 puts "Total: $" + total_price.to_s
-

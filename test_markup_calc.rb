@@ -11,10 +11,6 @@ class TestMarkupCalc < Minitest::Test
 		assert_kind_of(Integer, amount_input("number"))
 	end
 
-	def test_material_input_for_string
-		assert_kind_of(String, prod_material)
-	end
-
 	def test_flat_markup
 		assert_equal(1050, flat_markup(1000))
 	end
@@ -24,11 +20,11 @@ class TestMarkupCalc < Minitest::Test
 	end
 
 	def test_food_material_markup
-		assert_equal(0.13, prod_material_markup("Food"))
+		assert_equal(0.13, prod_material_markup(2))
 	end
 
 	def test_electronics_material_markup
-		assert_equal(0.02, prod_material_markup("Electronics"))
+		assert_equal(0.02, prod_material_markup(3))
 	end
 
 	def test_calc_total
